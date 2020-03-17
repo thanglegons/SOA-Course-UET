@@ -12,8 +12,8 @@ public class Client {
         try {
             Socket socket = new Socket(address, port);
             System.out.println("Connected to server!");
-            Scanner inputFromCommandLine = new Scanner(System.in);
 
+            Scanner inputFromCommandLine = new Scanner(System.in);
             DataInputStream inputFromServer = new DataInputStream(socket.getInputStream());
             DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
 
@@ -33,6 +33,7 @@ public class Client {
             inputFromCommandLine.close();
             outputStream.close();
             socket.close();
+
         } catch (Exception e) {
             System.out.println("Cannot connect to sever");
         }

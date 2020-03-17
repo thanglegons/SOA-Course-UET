@@ -15,7 +15,8 @@ public class Server {
 
         Socket socket = server.accept();
 
-        DataInputStream inputStream = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+        DataInputStream inputStream = new DataInputStream(
+                new BufferedInputStream(socket.getInputStream()));
         DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
 
         StudentManagement studentManagement = new StudentManagement();
@@ -29,7 +30,7 @@ public class Server {
                     break;
                 }
                 Integer studentId = Integer.parseInt(input);
-                System.out.println(studentId);
+                System.out.println("Received input " + studentId.toString() + " from Client.");
                 String studentInfo = studentManagement.getStudentInfo(studentId);
                 outputStream.writeUTF(studentInfo);
             } catch (Exception e) {
@@ -42,6 +43,7 @@ public class Server {
 
         socket.close();
         inputStream.close();
+        outputStream.close();
     }
 
     public static void main(String[] args) throws IOException {
