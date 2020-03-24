@@ -15,7 +15,7 @@ public class Server {
             Naming.rebind("rmi://localhost:1919" + "/find_student", studentManagement);
             System.out.println("Server starts successfully!");
         } catch (RemoteException | MalformedURLException e) {
-            System.out.println("Server starts unsuccessfully :(");
+            System.out.println("Server started unsuccessfully :(");
             e.printStackTrace();
         }
     }

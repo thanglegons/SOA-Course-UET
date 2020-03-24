@@ -15,6 +15,7 @@ public class StudentManagementImpl extends UnicastRemoteObject implements Studen
 
     public void addNewStudent(Student student) {
         integerStudentMap.put(student.getStudentId(), student);
+        System.out.println("Adding studentId " + student.getStudentId().toString() + " successfully");
     }
 
     public void addNewStudents(List<Student> students) {
@@ -24,7 +25,7 @@ public class StudentManagementImpl extends UnicastRemoteObject implements Studen
     }
 
     @Override
-    public String getStudentInfo(Integer studentId) throws RemoteException {
+    public String getStudentInfo(Integer studentId) {
         if (!integerStudentMap.containsKey(studentId)) {
             return "Not found!";
         } else {
